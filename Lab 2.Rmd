@@ -1,0 +1,56 @@
+---
+title: "lab2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(easyGgplot2)
+
+```
+
+
+```{r cars}
+summary(cars)
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+a <- c(2,4,3,8,5)
+b <- c(3,4,7,6,9)
+plot (a,b)
+plot (a,b, main = "My Scatterplot", xlab = "hours spent painting", ylab = "happiness")
+abline(lm(b~a))
+
+library(Lock5Data)
+data('Cereal')
+head(Cereal)
+
+```
+This data set shows different cereals, the company that owns them and the nutritional content of each one. 
+
+
+```{r}
+plot (Cereal$Sugars, Cereal$Calories, main= "Relationship between Sugars and Calories for cereal", xlab = "Sugars", ylab = "Calories", xlim = c(0,20), ylim = c(0,200))
+  abline(line)
+summary(Cereal$Sugars, Cereal$Calories)
+line<-lm(Calories~Sugars, data = Cereal)
+xyplot(Sugars~Calories| group, data = Cereal)
+```
+```{r}
+ggplot2.scatterplot(data=Cereal, xName='Sugars',yName='Calories',
+                    groupName="Company", addRegLine=TRUE)
+summary(Cereal$Sugars, Cereal$Calories)
+
+```
+
